@@ -1,0 +1,33 @@
+CREATE DATABASE progmatic_probamodul_spring;
+USE progmatic_probamodul_spring;
+DROP DATABASE progmatic_probamodul_spring;
+
+CREATE TABLE person (
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR (50),
+place_of_birth VARCHAR (25),
+date_of_birth DATE,
+email VARCHAR (50)
+);
+
+CREATE TABLE expense(
+id INT PRIMARY KEY AUTO_INCREMENT,
+location VARCHAR (50),
+amount INT,
+person_id INT,
+FOREIGN KEY (person_id) REFERENCES person (id)
+);
+
+INSERT INTO person (name, place_of_birth, date_of_birth, email) VALUES
+('Kis Gizi', 'Budapest', '1978-07-23', 'kg@mail.com'),
+('Nagy laci', 'Debrecen', '1994-11-29', 'nl@mail.com'),
+('Penze Juli', 'Etyek', '1967-12-07', 'pj@mail.com');
+
+INSERT INTO expense (location, amount, person_id) VALUES
+('Mozi', 12500, 3),
+('C&A', 9000, 2),
+('CBA', 45000, 1),
+('DokkCaffe', 75000, 3),
+('Online', 22300, 2),
+('Uszoda', 2500, 1),
+('GRoby', 20000, 3);
